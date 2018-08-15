@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "c013aac8-c079-4e7a-85b2-6a5098b97fd1",
+		"name": "PP_Looping Posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "da2145e1-4a8e-4f0c-82c3-58599cb5559b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Customer Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"GivenName\": \"Ravi\",\n  \"FamilyName\": \"koneru\"\n}"
+				},
+				"url": {
+					"raw": "{{pp_url}}/customers/api/Customers/",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"customers",
+						"api",
+						"Customers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Contact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be7e2b1d-0674-45c7-93c5-5ac7cc588e62",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Customer Contact Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"CustomerId\": \"31caf19b-41a6-4f8e-8a1a-d213d0acde3a\",\n \n  \"MobileNumber\": \"0777 435 635\",\n  \"HomeNumber\": \"0121 888777\",\n  \"AlternativeNumber\": \"0121 444889\",\n  \"EmailAddress\": \"user@organisation.com\",\n  \"LastModifiedDate\": \"2018-06-21T17:45:00Z\",\n  \"LastModifiedTouchpointId\": \"0000000001\"\n}"
+				},
+				"url": {
+					"raw": "{{pp_url}}/contacts/api/Customers/31caf19b-41a6-4f8e-8a1a-d213d0acde3a/contactdetails/",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"contacts",
+						"api",
+						"Customers",
+						"31caf19b-41a6-4f8e-8a1a-d213d0acde3a",
+						"contactdetails",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Outcome",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dfbec953-b818-4db6-b0bf-38521115ea9f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Outcome Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"CustomerId\": \"37154687-948f-4a9d-b6b9-6eab457f6401\",\n  \"ActionPlanId\": \"ce82f9b6-c607-4a69-8301-eeded6059ba3\",\n  \"OutcomeType\": \"1\",\n  \"OutcomeClaimedDate\": \"2018-06-20T21:45:00Z\",\n  \"OutcomeEffectiveDate\": \"2018-06-20T21:45:00Z\",\n  \"TouchpointId\": \"d1307d77-af23-4cb4-b600-a60e04f8c3df\",\n  \"LastModifiedDate\": \"2018-06-20T13:45:00Z\",\n  \"LastModifiedTouchpointId\": \"0000000001\"\n}"
+				},
+				"url": {
+					"raw": "{{pp_url}}/outcomes/api/Customers/37154687-948f-4a9d-b6b9-6eab457f6401/Interactions/21508b48-cf62-4e50-a883-08775426da0f/ActionPlans/ce82f9b6-c607-4a69-8301-eeded6059ba3/Outcomes",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"outcomes",
+						"api",
+						"Customers",
+						"37154687-948f-4a9d-b6b9-6eab457f6401",
+						"Interactions",
+						"21508b48-cf62-4e50-a883-08775426da0f",
+						"ActionPlans",
+						"ce82f9b6-c607-4a69-8301-eeded6059ba3",
+						"Outcomes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Action",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b088b9fa-220d-4330-b79e-b797fa11c694",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Action Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"CustomerId\": \"37154687-948f-4a9d-b6b9-6eab457f6401\",\n  \"ActionPlanId\": \"ce82f9b6-c607-4a69-8301-eeded6059ba3\",\n  \"DateActionAgreed\": \"2018-06-21T07:20:00Z\",\n  \"DateActionAimsToBeCompletedBy\": \"2018-06-27T09:00:00Z\",\n  \"DateActionActuallyCompleted\": \"2018-06-24T14:38:00Z\",\n  \"ActionSummary\": \"Please take some action\",\n  \"SignpostedTo\": \"Please do Sign\",\n  \"ActionType\": \"1\",\n  \"ActionStatus\": \"1\",\n  \"PersonResponsible\": \"1\",\n  \"LastModifiedDate\": \"2018-06-20T13:45:00Z\",\n  \"LastModifiedTouchpointId\": \"0000000001\"\n}\n   "
+				},
+				"url": {
+					"raw": "{{pp_url}}/actions/api/Customers/37154687-948f-4a9d-b6b9-6eab457f6401/Interactions/21508b48-cf62-4e50-a883-08775426da0f/ActionPlans/ce82f9b6-c607-4a69-8301-eeded6059ba3/Actions/",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"actions",
+						"api",
+						"Customers",
+						"37154687-948f-4a9d-b6b9-6eab457f6401",
+						"Interactions",
+						"21508b48-cf62-4e50-a883-08775426da0f",
+						"ActionPlans",
+						"ce82f9b6-c607-4a69-8301-eeded6059ba3",
+						"Actions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Webchats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91240e0d-3614-4ae4-bea3-10ecf62fd211",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"WebChats Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n  \"CustomerId\": \"37154687-948f-4a9d-b6b9-6eab457f6401\",\n  \"InteractionId\": \"21508b48-cf62-4e50-a883-08775426da0f\",\n  \"WebChatStartDateandTime\": \"2018-06-20T13:20:00Z\",\n  \"WebChatEndDateandTime\": \"2018-06-20T13:45:00Z\",\n  \"WebChatNarrative\": \"this is WebChat\"\n}"
+				},
+				"url": {
+					"raw": "{{pp_url}}/webchats/api/Customers/37154687-948f-4a9d-b6b9-6eab457f6401/Interactions/21508b48-cf62-4e50-a883-08775426da0f/WebChats",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"webchats",
+						"api",
+						"Customers",
+						"37154687-948f-4a9d-b6b9-6eab457f6401",
+						"Interactions",
+						"21508b48-cf62-4e50-a883-08775426da0f",
+						"WebChats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create ActionPlan",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d898c82a-8900-4223-8091-96ff45327914",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Action Plan Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"CustomerId\": \"37154687-948f-4a9d-b6b9-6eab457f6401\",\n  \"InteractionId\": \"21508b48-cf62-4e50-a883-08775426da0f\",\n  \"DateActionPlanCreated\": \"2018-07-30T09:00:00Z\",\n  \"CustomerCharterShownToCustomer\": \"true\",\n  \"DateAndTimeCharterShown\": \"2018-06-20T21:45:00Z\",\n  \"DateActionPlanSentToCustomer\": \"2018-06-21T13:32:00Z\",\n  \"ActionPlanDeliveryMethod\": \"121212\",\n  \"DateActionPlanAcknowledged\": \"2018-06-22T07:55:00Z\",\n  \"PriorityCustomer\": \"99\",\n  \"CurrentSituation\": \"Something new\",\n  \"LastModifiedDate\": \"2018-06-20T13:45:00Z\"\n}"
+				},
+				"url": {
+					"raw": "{{pp_url}}/actionplans/api/Customers/37154687-948f-4a9d-b6b9-6eab457f6401/Interactions/21508b48-cf62-4e50-a883-08775426da0f/ActionPlans/",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"actionplans",
+						"api",
+						"Customers",
+						"37154687-948f-4a9d-b6b9-6eab457f6401",
+						"Interactions",
+						"21508b48-cf62-4e50-a883-08775426da0f",
+						"ActionPlans",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advisory Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e74463c-2ef6-46f9-8ffa-698100fe4e82",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Advisory Details Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"AdviserName\": \"KingsCollege\",\n  \"AdviserEmailAddress\": \"Kings@sample.com\",\n  \"AdviserContactNumber\": \"012345 678901\"\n\n}"
+				},
+				"url": {
+					"raw": "{{pp_url}}/adviserdetails/api/AdviserDetails",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"adviserdetails",
+						"api",
+						"AdviserDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Goal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1250d29c-932e-40ef-8c2f-f7c0f4c16cfe",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Goal Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"CustomerId\": \"37154687-948f-4a9d-b6b9-6eab457f6401\",\n  \"ActionPlanId\": \"ce82f9b6-c607-4a69-8301-eeded6059ba3\",\n  \"DateGoalCaptured\": \"2018-07-21T11:31:00Z\",\n  \"DateGoalShouldBeCompletedBy\": \"2019-06-23T12:01:00Z\",\n  \"GoalSummary\": \"this is for creating a Goal\",\n  \"GoalType\": \"3\",\n  \"GoalStatus\": \"99\"\n  \n}\n"
+				},
+				"url": {
+					"raw": "{{pp_url}}/goals/api/Customers/37154687-948f-4a9d-b6b9-6eab457f6401/Interactions/21508b48-cf62-4e50-a883-08775426da0f/ActionPlans/ce82f9b6-c607-4a69-8301-eeded6059ba3/Goals/",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"goals",
+						"api",
+						"Customers",
+						"37154687-948f-4a9d-b6b9-6eab457f6401",
+						"Interactions",
+						"21508b48-cf62-4e50-a883-08775426da0f",
+						"ActionPlans",
+						"ce82f9b6-c607-4a69-8301-eeded6059ba3",
+						"Goals",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Interactions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f68b8b60-c34a-4b39-9a82-7cea1361be1a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Interaction Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "8a5d95d44b7c4816816b5246abf8128a"
+					},
+					{
+						"key": "TouchpointId",
+						"value": "0000000101"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"CustomerId\": \"37154687-948f-4a9d-b6b9-6eab457f6401\",\n  \"TouchpointId\":\"0000000101\",\n  \"AdviserDetailsId\": \"b740314e-7ad7-4914-a1d0-cd91c144e173\",\n  \"Channel\": \"1\",\n  \"InteractionType\": \"2\"\n}\n"
+				},
+				"url": {
+					"raw": "{{pp_url}}/interactions/api/Customers/37154687-948f-4a9d-b6b9-6eab457f6401/Interactions/",
+					"host": [
+						"{{pp_url}}"
+					],
+					"path": [
+						"interactions",
+						"api",
+						"Customers",
+						"37154687-948f-4a9d-b6b9-6eab457f6401",
+						"Interactions",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "af96174b-8fa6-4a1c-9b1d-5e99bd29f2e4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9be20cd5-d817-4aac-8fb4-bf4fd7631f43",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1b803bfb-b685-4baf-8512-ea9a093778dc",
+			"key": "pp_url",
+			"value": "https://pp.dss.nationalcareersservice.direct.gov.uk",
+			"type": "string"
+		},
+		{
+			"id": "579128f1-9b01-44b7-a605-ffc1b93bcf4a",
+			"key": "customerId",
+			"value": "37154687-948f-4a9d-b6b9-6eab457f6401",
+			"type": "string"
+		}
+	]
+}
